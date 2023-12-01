@@ -11,8 +11,13 @@
     <select id="selFeedAll">
         select a.ifeed, a.contents, a.location,
         a.created_at as createdAt, a.iuser as writerIuser,
-        b.nm as writerNm, b.pic as writerPic from t_feed a
+        b.nm as writerNm, b.pic as writerPic,
+        if(c.iuser is null, 0, 1) as isFav
+        from t_feed a
         join t_user b on a.iuser= b.iuser
+        left join t_feed_fav c
+        on a.ifeed= c.ifeed
+        and c.iuser= #{loginedIuser}
         order by a.ifeed desc
         limit #{startIdx}, #{rowCount}
     </select>

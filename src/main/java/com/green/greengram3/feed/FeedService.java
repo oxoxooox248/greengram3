@@ -14,7 +14,7 @@ public class FeedService {
     private final FeedMapper mapper;
     private final FeedPicMapper picMapper;
     private final FeedFavMapper favMapper;
-
+    private final FeedCommentMapper commentMapper;
     public ResVo postFeed(FeedInsDto dto){
         int affectedCnt= mapper.insFeed(dto);
         int affectedPicCnt= picMapper.insFeedPics(dto);
@@ -22,9 +22,19 @@ public class FeedService {
     }
     public List<FeedSelVo> getFeedAll(FeedSelDto dto){
         List<FeedSelVo> list= mapper.selFeedAll(dto);//피드 리스트 페이징 select 1번!
-        for(FeedSelVo vo: list){//한 페이지에 피드 20
+        FeedCommentSelDto fcDto= new FeedCommentSelDto();
+        fcDto.setStartIdx(0);
+        fcDto.setRowCount(4);
+        for(FeedSelVo vo: list) {//한 페이지에 피드 20
             vo.setPics(picMapper.selFeedPics(vo.getIfeed()));
             //피드에 대한 사진 select 20번! -> 20+1 -> n+1
+            fcDto.setIfeed(vo.getIfeed());
+            List<FeedCommentSelVo> comments = commentMapper.selCommentAll(fcDto);
+            if(comments.size()==Const.FEED_COMMENT_FIRST_CNT){
+                vo.setIsMoreComment(1);
+                comments.remove(comments.size()-1);
+            }
+            vo.setComments(comments);
         }
         return list;
     }

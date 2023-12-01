@@ -19,17 +19,17 @@ public class FeedController {
     private final FeedService service;
 
     @PostMapping
-    @Operation(summary = "피드 등록", description = "피드 등록 처리 (iuser: 유저 pk, contents: 내용, location: 위치, pics: 피드 사진)")
-    public ResVo postFeed(@RequestBody FeedInsDto dto){
-        return service.postFeed(dto);
+    @Operation(summary = "피드 등록", description = "피드 등록 처리<br>(iuser: 유저 pk, contents: 내용, location: 위치, pics: 피드 사진)")
+    public ResVo postFeed(@RequestBody FeedInsDto dto){return service.postFeed(dto);
     }
     @GetMapping
-    @Operation(summary = "피드 리스트", description = "피드 리스트(page: 페이지(=20))")
-    public List<FeedSelVo> getFeedAll(int page){
-        return service.getFeedAll(new FeedSelDto(page));
+    @Operation(summary = "피드 리스트", description = "피드 리스트<br>(page: 페이지(=20), loginedIuser: 로그인한 유저 pk)")
+    public List<FeedSelVo> getFeedAll(FeedSelDto dto){
+        log.info("dto: {}", dto);
+        return service.getFeedAll(dto);
     }
     @GetMapping("/fav")
-    @Operation(summary = "좋아요 처리", description = "토글로 처리함(등록됨: result(1),취소됨: result(0))(iuser= 유저 pk, ifeed= 해당 피드 pk)")
+    @Operation(summary = "좋아요 처리", description = "토글로 처리함<br>(등록됨: result(1),취소됨: result(0))(iuser= 유저 pk, ifeed= 해당 피드 pk)")
     public ResVo toggleFav(FeedFavDto dto){
         return service.toggleFav(dto);
     }
