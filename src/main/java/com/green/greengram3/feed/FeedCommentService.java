@@ -21,7 +21,7 @@ public class FeedCommentService {
     public List<FeedCommentSelVo> getCommentAll(int ifeed){
         FeedCommentSelDto dto= new FeedCommentSelDto();
         dto.setIfeed(ifeed);
-        dto.setStartIdx(4);
+        dto.setStartIdx(3);
         dto.setRowCount(999);
         return mapper.selCommentAll(dto);
     }

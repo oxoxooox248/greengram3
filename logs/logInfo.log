@@ -1767,3 +1767,19 @@ java.sql.SQLSyntaxErrorException: (conn=194) Unknown column 'a.ifeedComment' in 
 [2023-12-01 16:15:29 [32mINFO [0;39m http-nio-8082-exec-4] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-20 - Added connection org.mariadb.jdbc.Connection@212db92[0;39m
 [2023-12-01 16:15:29 [32mINFO [0;39m http-nio-8082-exec-4] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-20 - Start completed.[0;39m
 [2023-12-01 16:15:35 [32mINFO [0;39m http-nio-8082-exec-1] [com.green.greengram3.feed.FeedController] [36mdto: FeedSelDto(page=0, loginedIuser=1, startIdx=20, rowCount=20)[0;39m
+[2023-12-01 16:36:17 [32mINFO [0;39m http-nio-8082-exec-1] [com.green.greengram3.feed.FeedController] [36mdto: FeedSelDto(page=0, loginedIuser=1, startIdx=0, rowCount=20)[0;39m
+[2023-12-01 16:36:25 [32mINFO [0;39m http-nio-8082-exec-2] [com.green.greengram3.feed.FeedController] [36mdto: FeedSelDto(page=0, loginedIuser=1, startIdx=20, rowCount=20)[0;39m
+[2023-12-01 16:36:28 [32mINFO [0;39m http-nio-8082-exec-6] [com.green.greengram3.feed.FeedController] [36mdto: FeedSelDto(page=0, loginedIuser=1, startIdx=40, rowCount=20)[0;39m
+[2023-12-01 16:36:32 [32mINFO [0;39m http-nio-8082-exec-7] [com.green.greengram3.feed.FeedController] [36mdto: FeedSelDto(page=0, loginedIuser=1, startIdx=60, rowCount=20)[0;39m
+[2023-12-01 16:36:37 [32mINFO [0;39m http-nio-8082-exec-3] [com.green.greengram3.feed.FeedController] [36mdto: FeedSelDto(page=0, loginedIuser=1, startIdx=80, rowCount=20)[0;39m
+[2023-12-01 16:36:42 [32mINFO [0;39m http-nio-8082-exec-1] [com.green.greengram3.feed.FeedController] [36mdto: FeedSelDto(page=0, loginedIuser=1, startIdx=100, rowCount=20)[0;39m
+[2023-12-01 16:36:45 [32mINFO [0;39m http-nio-8082-exec-6] [com.green.greengram3.feed.FeedController] [36mdto: FeedSelDto(page=0, loginedIuser=1, startIdx=120, rowCount=20)[0;39m
+[2023-12-01 16:36:54 [32mINFO [0;39m http-nio-8082-exec-1] [com.green.greengram3.feed.FeedController] [36mdto: FeedSelDto(page=0, loginedIuser=1, startIdx=140, rowCount=20)[0;39m
+[2023-12-01 16:37:07 [32mINFO [0;39m http-nio-8082-exec-5] [com.green.greengram3.feed.FeedController] [36mdto: FeedSelDto(page=0, loginedIuser=1, startIdx=0, rowCount=20)[0;39m
+[2023-12-01 16:37:08 [32mINFO [0;39m http-nio-8082-exec-6] [com.green.greengram3.feed.FeedController] [36mdto: FeedSelDto(page=0, loginedIuser=1, startIdx=0, rowCount=20)[0;39m
+[2023-12-01 16:37:13 [32mINFO [0;39m http-nio-8082-exec-4] [com.green.greengram3.feed.FeedController] [36mdto: FeedSelDto(page=0, loginedIuser=1, startIdx=20, rowCount=20)[0;39m
+[2023-12-01 16:37:17 [32mINFO [0;39m http-nio-8082-exec-10] [com.green.greengram3.feed.FeedController] [36mdto: FeedSelDto(page=0, loginedIuser=1, startIdx=40, rowCount=20)[0;39m
+[2023-12-01 16:37:21 [32mINFO [0;39m http-nio-8082-exec-9] [com.green.greengram3.feed.FeedController] [36mdto: FeedSelDto(page=0, loginedIuser=1, startIdx=60, rowCount=20)[0;39m
+[2023-12-01 16:37:24 [32mINFO [0;39m http-nio-8082-exec-2] [com.green.greengram3.feed.FeedController] [36mdto: FeedSelDto(page=0, loginedIuser=1, startIdx=80, rowCount=20)[0;39m
+[2023-12-01 16:37:27 [32mINFO [0;39m http-nio-8082-exec-8] [com.green.greengram3.feed.FeedController] [36mdto: FeedSelDto(page=0, loginedIuser=1, startIdx=100, rowCount=20)[0;39m
+[2023-12-01 16:37:30 [32mINFO [0;39m http-nio-8082-exec-10] [com.green.greengram3.feed.FeedController] [36mdto: FeedSelDto(page=0, loginedIuser=1, startIdx=120, rowCount=20)[0;39m
