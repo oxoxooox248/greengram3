@@ -9,4 +9,6 @@ import java.util.List;
 public interface FeedMapper {
     int insFeed(FeedInsDto dto);
     List<FeedSelVo> selFeedAll(FeedSelDto dto);
+
+    int delFeed(FeedDelDto dto);
 }

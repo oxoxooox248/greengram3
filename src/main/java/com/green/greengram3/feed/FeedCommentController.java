@@ -26,6 +26,7 @@ public class FeedCommentController {
         return service.postComment(dto);
     }
     @GetMapping
+    @Operation(summary = "피드 댓글 더보기", description = "댓글 더보기 처리<br>(ifeed: 피드 pk)")
     public List<FeedCommentSelVo> getFeedCommentAll(int ifeed){
         return service.getCommentAll(ifeed);
     }

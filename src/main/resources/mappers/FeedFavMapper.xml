@@ -11,4 +11,8 @@
         delete from t_feed_fav
         where ifeed= #{ifeed} and iuser= #{iuser}
     </delete>
+    <delete id="delFavByIfeed">
+        delete from t_feed_fav
+        where ifeed= #{ifeed}
+    </delete>
 </mapper>

@@ -2,8 +2,6 @@ package com.green.greengram3.user;
 
 import com.green.greengram3.common.ResVo;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -37,5 +35,10 @@ public class UserController {
         log.info("dto: {}", dto);
         return service.signin(dto);
         //result - (1):성공, (2):아이디 없음, (3):비밀번호 틀림
+    }
+    @PostMapping("/follow")
+    public ResVo toggleFollow(@RequestBody UserFollowDto dto){
+        //result(1): following, (0): 취소
+        return service.toggleFollow(dto);
     }
 }

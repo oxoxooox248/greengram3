@@ -11,6 +11,10 @@ import lombok.Data;
 public class FeedSelDto {
     private int page;
     private int loginedIuser;
+    @Schema(title="프로필 주인 유저 pk", required= false)
+    private int targetIuser;
+    @Schema(title="좋아요 Feed 리스트 여부", required = false)
+    private int isFavList;
     @JsonIgnore
     private int startIdx;
     @JsonIgnore

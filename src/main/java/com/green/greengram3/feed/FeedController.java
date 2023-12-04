@@ -23,14 +23,21 @@ public class FeedController {
     public ResVo postFeed(@RequestBody FeedInsDto dto){return service.postFeed(dto);
     }
     @GetMapping
-    @Operation(summary = "피드 리스트", description = "피드 리스트<br>(page: 페이지(=20), loginedIuser: 로그인한 유저 pk)")
+    @Operation(summary = "피드 리스트", description = "피드 리스트<br>(page: 페이지(=20), loginedIuser: 로그인한 유저 pk, targetIuser: 프로필 주인 유저pk)")
     public List<FeedSelVo> getFeedAll(FeedSelDto dto){
         log.info("dto: {}", dto);
         return service.getFeedAll(dto);
     }
+
     @GetMapping("/fav")
     @Operation(summary = "좋아요 처리", description = "토글로 처리함<br>(등록됨: result(1),취소됨: result(0))(iuser= 유저 pk, ifeed= 해당 피드 pk)")
     public ResVo toggleFav(FeedFavDto dto){
         return service.toggleFav(dto);
+    }
+    @DeleteMapping
+    @Operation(summary = "피드 삭제", description = "피드 삭제 처리<br>(삭제됨: result(1),삭제 안됨: result(0))(iuser= 유저 pk, ifeed= 해당 피드 pk)")
+    public ResVo delFeed(FeedDelDto dto){
+        log.info("dto: {}", dto);
+        return service.delFeed(dto);
     }
 }

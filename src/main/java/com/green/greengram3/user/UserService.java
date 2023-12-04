@@ -40,4 +40,11 @@ public class UserService {
                 iuser(entity.getIuser()).nm(entity.getNm()).
                 pic(entity.getPic()).build();
     }
+    public ResVo toggleFollow(UserFollowDto dto){
+        int delFollow= mapper.delFollow(dto);
+        if(delFollow==1){
+            return new ResVo(0);
+        }
+        return new ResVo(mapper.insFollow(dto));
+    }
 }

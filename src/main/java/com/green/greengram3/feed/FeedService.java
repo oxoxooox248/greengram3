@@ -38,6 +38,16 @@ public class FeedService {
         }
         return list;
     }
+
+    public ResVo delFeed(FeedDelDto dto){
+        int affectedPic= picMapper.delFeedPicAll(dto);
+        if(affectedPic==0){return new ResVo(Const.FAIL);}
+        int affectedfav= favMapper.delFavByIfeed(dto);
+        int affectedComment= commentMapper.delCommentByIfeed(dto);
+        int affectedFeed= mapper.delFeed(dto);
+        return new ResVo(Const.SUCCESS);
+
+    }
     public ResVo toggleFav(FeedFavDto dto){
         int affectedFavCnt= favMapper.delFav(dto);
         if(affectedFavCnt==1){return new ResVo(Const.FEED_FAV_DEL);}

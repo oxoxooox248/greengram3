@@ -16,4 +16,13 @@
             </if>
         </where>
     </select>
+    <insert id="insFollow">
+        insert into t_user_follow
+        set from_iuser= #{fromIuser},
+        to_iuser= #{toIuser}
+    </insert>
+    <delete id="delFollow">
+        delete from t_user_follow
+        where from_iuser= #{fromIuser} and to_iuser= #{toIuser}
+    </delete>
 </mapper>
