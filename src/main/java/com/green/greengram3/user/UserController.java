@@ -5,11 +5,8 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.green.greengram3.user.model.*;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Slf4j
 @RestController
@@ -41,4 +38,9 @@ public class UserController {
         //result(1): following, (0): 취소
         return service.toggleFollow(dto);
     }
+    @GetMapping
+    public UserInfoVo getUserInfo(UserInfoSelDto dto){
+        return service.getUserInfo(dto);
+    }
+
 }

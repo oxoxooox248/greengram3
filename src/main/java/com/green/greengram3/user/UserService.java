@@ -47,4 +47,7 @@ public class UserService {
         }
         return new ResVo(mapper.insFollow(dto));
     }
+    public UserInfoVo getUserInfo(UserInfoSelDto dto){
+        return mapper.selUserInfo(dto);
+    }
 }

@@ -9,4 +9,5 @@ public interface UserMapper {
     UserEntity selUser(UserSelDto dto);
     int insFollow(UserFollowDto dto);
     int delFollow(UserFollowDto dto);
+    UserInfoVo selUserInfo(UserInfoSelDto dto);
 }
