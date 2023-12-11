@@ -15,7 +15,7 @@ import com.green.greengram3.user.model.*;
 @Tag(name= "유저 API",description= "유저 관련 처리")
 public class UserController {
     private final UserService service;
-
+    
     @PostMapping("/signup")//주소값도 맞춰 줘야 한다.
     @Operation(summary = "회원가입", description = "회원가입 처리<br>(uid: 아이디, upw: 비밀번호 ,nm: 이름 pic: 프로필 사진)")
     public ResVo postSignup(@RequestBody UserSignupDto dto){
@@ -34,11 +34,13 @@ public class UserController {
         //result - (1):성공, (2):아이디 없음, (3):비밀번호 틀림
     }
     @PostMapping("/follow")
+    @Operation(summary = "팔로우 ON / OFF", description = "팔로우 토글 처리")
     public ResVo toggleFollow(@RequestBody UserFollowDto dto){
         //result(1): following, (0): 취소
         return service.toggleFollow(dto);
     }
     @GetMapping
+    @Operation(summary = "유저 정보", description = "프로필 사진 클릭 시 나타나는 유저 정보")
     public UserInfoVo getUserInfo(UserInfoSelDto dto){
         return service.getUserInfo(dto);
     }
