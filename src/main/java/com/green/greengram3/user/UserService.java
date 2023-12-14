@@ -21,9 +21,7 @@ public class UserService {
         //비밀번호 암호화 (단방향>복호화가 안된다.)
         //(비밀번호를 바꿀수는 있어도 이전 비밀번호가 뭔지는 알수없다.)
         dto.setUpw(hashedPw);
-        log.info("before - pDto.iuser: {}", dto.getIuser());
         int affectedCnt= mapper.insUser(dto);
-        log.info("after - pDto.iuser: {}", dto.getIuser());
         if(affectedCnt==0){return new ResVo(0);}
         return new ResVo(dto.getIuser());//회원가입한 iuser pk값이 리턴
     }

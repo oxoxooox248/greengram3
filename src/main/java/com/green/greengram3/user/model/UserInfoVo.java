@@ -12,7 +12,7 @@ public class UserInfoVo {
     private int follower;//팔로워 수(targetIuser를 팔로우 하는 사람)
     private int following;//팔로잉 수(targetIuser가 팔로우 하는 사람)
     private int followState;
-    //1- loginedIuser가 targetIuser를 팔로우한 상황
-    //2- targetIuser가 loginedIuser를 팔로우만 한 상황
+    //1- loginedIuser만 targetIuser를 팔로우한 상황
+    //2- targetIuser만 loginedIuser를 팔로우한 상황
     //3- 둘 다 팔로우한 상황
 }

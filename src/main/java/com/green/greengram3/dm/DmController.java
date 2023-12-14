@@ -44,4 +44,10 @@ public class DmController {
     public ResVo delDmMsg(DmMsgDelDto dto){
         return service.delDmMsg(dto);
     }
+
+    @PostMapping
+    @Operation(summary = "디엠 생성", description = "디엠 생성 처리(디엠, 디엠에 속한 유저)")
+    public DmSelVo postDm(@RequestBody DmInsDto dto){
+        return service.postDm(dto);
+    }
 }
