@@ -44,5 +44,13 @@ public class UserController {
     public UserInfoVo getUserInfo(UserInfoSelDto dto){
         return service.getUserInfo(dto);
     }
+    @PatchMapping("/firebase-token")
+    public ResVo patchUserFirebaseToken(@RequestBody UserFirebaseTokenPatchDto dto){
+        return service.patchUserFirebaseToken(dto);
+    }
+    @PatchMapping("/pic")
+    public ResVo patchUserPic(@RequestBody UserPicPatchDto dto){
+        return service.patchUserPic(dto);
+    }
 
 }

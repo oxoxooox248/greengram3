@@ -4,32 +4,41 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.green.greengram3.feed.FeedMapper">
     <insert id="insFeed" useGeneratedKeys="true" keyProperty="ifeed">
-        insert into t_feed set
-        iuser= #{iuser}, contents= #{contents},
-        location= #{location}
+        INSERT INTO
+        t_feed
+        SET
+            iuser= #{iuser},
+            contents= #{contents},
+            location= #{location}
     </insert>
     <select id="selFeedAll">
-        select a.ifeed, a.contents, a.location,
-        a.created_at as createdAt, a.iuser as writerIuser,
-        b.nm as writerNm, b.pic as writerPic,
-        if(c.iuser is null, 0, 1) as isFav
-        from t_feed a
-        join t_user b on a.iuser= b.iuser
+        SELECT
+            A.ifeed,
+            A.contents,
+            A.location,
+            A.created_at as createdAt,
+            A.iuser as writerIuser,
+            B.nm as writerNm,
+            B.pic as writerPic,
+            IF(C.iuser IS NULL, 0, 1) AS isFav
+        FROM t_feed A
+        JOIN t_user B
+        ON A.iuser= B.iuser
         <choose>
             <when test="isFavList==1">
-                inner join t_feed_fav c
+                JOIN t_feed_fav C
             </when>
             <otherwise>
-                left join t_feed_fav c
+                LEFT JOIN t_feed_fav C
             </otherwise>
         </choose>
-        on a.ifeed= c.ifeed
-        and c.iuser= #{loginedIuser}
+        ON A.ifeed= C.ifeed
+        AND C.iuser= #{loginedIuser}
         <if test="isFavList==0 and targetIuser>0">
-            where a.iuser= #{targetIuser}
+            WHERE A.iuser= #{targetIuser}
         </if>
-        order by a.ifeed desc
-        limit #{startIdx}, #{rowCount}
+        ORDER BY A.ifeed DESC
+        LIMIT #{startIdx}, #{rowCount}
         <!--<if test="isFavList==1">
                where c.iuser is not null
             </if>
@@ -37,13 +46,17 @@
                where a.iuser= #{targetIuser}
             </if>-->
     </select>
-
     <select id="selFeed">
-        select ifeed from t_feed
-        where ifeed= #{ifeed} and iuser= #{iuser}
+        SELECT
+        ifeed
+        FROM t_feed
+        WHERE ifeed= #{ifeed}
+        AND iuser= #{iuser}
     </select>
     <delete id="delFeed">
-        delete from t_feed
-        where ifeed= #{ifeed} and iuser= #{iuser}
+        DELETE FROM
+        t_feed
+        WHERE ifeed= #{ifeed}
+        AND iuser= #{iuser}
     </delete>
 </mapper>

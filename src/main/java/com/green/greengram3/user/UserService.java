@@ -35,8 +35,11 @@ public class UserService {
             return UserSigninVo.builder().result(Const.LOGIN_DIFF_UPW).build();
         }
         return UserSigninVo.builder().result(Const.SUCCESS).
-                iuser(entity.getIuser()).nm(entity.getNm()).
-                pic(entity.getPic()).build();
+                iuser(entity.getIuser()).
+                nm(entity.getNm()).
+                pic(entity.getPic()).
+                firebaseToken(entity.getFirebaseToken()).
+                build();
     }
     public ResVo toggleFollow(UserFollowDto dto){
         int delFollow= mapper.delFollow(dto);
@@ -47,5 +50,11 @@ public class UserService {
     }
     public UserInfoVo getUserInfo(UserInfoSelDto dto){
         return mapper.selUserInfo(dto);
+    }
+    public ResVo patchUserFirebaseToken(UserFirebaseTokenPatchDto dto){
+        return new ResVo(mapper.updUserFirebaseToken(dto));
+    }
+    public ResVo patchUserPic(UserPicPatchDto dto){
+        return new ResVo(mapper.updUserPic(dto));
     }
 }

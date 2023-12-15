@@ -4,20 +4,27 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.green.greengram3.feed.FeedPicMapper">
     <insert id="insFeedPics">
-        insert into t_feed_pics
-         (ifeed, pic) values
+        INSERT INTO
+        t_feed_pics
+        (ifeed, pic)
+        VALUES
         <foreach collection="pics" item="pic" separator=",">
             (#{ifeed}, #{pic})
         </foreach>
     </insert>
     <select id="selFeedPics">
-        select pic from t_feed_pics
-        where ifeed= #{ifeed}
+        SELECT
+        pic
+        FROM t_feed_pics
+        WHERE ifeed= #{ifeed}
     </select>
     <delete id="delFeedPicAll">
-        delete a from t_feed_pics a
-        inner join t_feed b
-        on a.ifeed= b.ifeed
-        where b.ifeed= #{ifeed} and b.iuser= #{iuser}
+        DELETE
+        A
+        FROM t_feed_pics A
+        JOIN t_feed B
+        ON A.ifeed= B.ifeed
+        WHERE B.ifeed= #{ifeed}
+        AND B.iuser= #{iuser}
     </delete>
 </mapper>

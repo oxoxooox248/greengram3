@@ -4,15 +4,21 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.green.greengram3.feed.FeedFavMapper">
     <insert id="insFav">
-        insert into t_feed_fav
-        set ifeed= #{ifeed}, iuser= #{iuser}
+        INSERT INTO
+        t_feed_fav
+        SET
+            ifeed= #{ifeed},
+            iuser= #{iuser}
     </insert>
     <delete id="delFav">
-        delete from t_feed_fav
-        where ifeed= #{ifeed} and iuser= #{iuser}
+        DELETE FROM
+        t_feed_fav
+        WHERE ifeed= #{ifeed}
+        AND iuser= #{iuser}
     </delete>
     <delete id="delFavByIfeed">
-        delete from t_feed_fav
-        where ifeed= #{ifeed}
+        DELETE FROM
+        t_feed_fav
+        WHERE ifeed= #{ifeed}
     </delete>
 </mapper>

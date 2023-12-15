@@ -10,4 +10,6 @@ public interface UserMapper {
     int insFollow(UserFollowDto dto);//팔로우 설정
     int delFollow(UserFollowDto dto);//팔로우 해제
     UserInfoVo selUserInfo(UserInfoSelDto dto);//유저 정보
+    int updUserFirebaseToken(UserFirebaseTokenPatchDto dto);//유저 FirebaseToken 변경
+    int updUserPic(UserPicPatchDto dto);//유저 사진 변경
 }
