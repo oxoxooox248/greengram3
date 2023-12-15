@@ -22,7 +22,7 @@ public class UserService {
         //(비밀번호를 바꿀수는 있어도 이전 비밀번호가 뭔지는 알수없다.)
         dto.setUpw(hashedPw);
         int affectedCnt= mapper.insUser(dto);
-        if(affectedCnt==0){return new ResVo(0);}
+        if(affectedCnt==Const.FAIL){return new ResVo(Const.FAIL);}
         return new ResVo(dto.getIuser());//회원가입한 iuser pk값이 리턴
     }
     public UserSigninVo signin(UserSigninDto dto){
@@ -43,8 +43,8 @@ public class UserService {
     }
     public ResVo toggleFollow(UserFollowDto dto){
         int delFollow= mapper.delFollow(dto);
-        if(delFollow==1){
-            return new ResVo(0);
+        if(delFollow==Const.SUCCESS){
+            return new ResVo(Const.FOLLOW_OFF);
         }
         return new ResVo(mapper.insFollow(dto));
     }

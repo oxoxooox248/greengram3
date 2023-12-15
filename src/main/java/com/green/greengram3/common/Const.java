@@ -11,4 +11,5 @@ public class Const {
     public static final int FEED_COMMENT_FIRST_CNT= 4;
     public static final int DM_COUNT_PER_PAGE= 30;
     public static final int DM_MSG_COUNT_PER_PAGE= 20;
+    public static final int FOLLOW_OFF= 0;
 }
